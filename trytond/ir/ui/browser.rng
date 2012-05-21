@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns="http://relaxng.org/ns/structure/1.0">
+  <define name="browser">
+    <element name="browser">
+      <ref name="attlist.browser"/>
+    </element>
+  </define>
+  <define name="attlist.browser" combine="interleave">
+    <optional>
+      <attribute name="string" a:defaultValue="Unknown"/>
+    </optional>
+  </define>
+  <define name="attlist.browser" combine="interleave">
+    <optional>
+      <attribute name="url" a:defaultValue="Unknown"/>
+    </optional>
+  </define>
+  <start>
+    <choice>
+      <ref name="browser"/>
+    </choice>
+  </start>
+</grammar>
