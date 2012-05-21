@@ -27,6 +27,7 @@ class View(ModelSQL, ModelView):
             ('form', 'Form'),
             ('graph', 'Graph'),
             ('board', 'Board'),
+            ('browser', 'Browser')
             ], 'View Type', select=True)
     arch = fields.Text('View Architecture')
     inherit = fields.Many2One('ir.ui.view', 'Inherited View', select=True,
