@@ -646,14 +646,14 @@ class ActionActWindow(ModelSQL, ModelView):
                     view = act_window_view.view
                     if view.model != action.res_model:
                         return False
-                    if view.type == 'board':
+                    if view.type == 'board' or view.type == 'browser':
                         return False
             else:
                 for act_window_view in action.act_window_views:
                     view = act_window_view.view
                     if view.model:
                         return False
-                    if view.type != 'board':
+                    if view.type != 'board' and view.type != 'browser':
                         return False
         return True
 
