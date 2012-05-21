@@ -64,6 +64,7 @@ attlist.field &=
     | "image"
     | "progressbar"
     | "richtext"
+    | "browser"    
   }?
 attlist.field &= attribute fill { "0" | "1" }?
 attlist.field &= attribute yexpand { "0" | "1" }?

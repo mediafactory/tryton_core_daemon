@@ -163,6 +163,7 @@
           <value>image</value>
           <value>progressbar</value>
           <value>richtext</value>
+          <value>browser</value>
         </choice>
       </attribute>
     </optional>
