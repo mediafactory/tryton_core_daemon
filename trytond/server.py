@@ -10,6 +10,7 @@ import os
 import signal
 import time
 from trytond.config import CONFIG
+from trytond.version import VERSION, PACKAGE
 from getpass import getpass
 try:
     import hashlib
@@ -64,6 +65,8 @@ class TrytonServer(object):
 
         self.logger = logging.getLogger("server")
 
+        self.logger.info('running %s version %s' % (PACKAGE, VERSION))
+
         if CONFIG.configfile:
             self.logger.info('using %s as configuration file' % \
                     CONFIG.configfile)
@@ -73,7 +76,7 @@ class TrytonServer(object):
         self.xmlrpcd = []
         self.jsonrpcd = []
         self.webdavd = []
-
+        
     def run(self):
         "Run the server and never return"
         from trytond.backend import Database
