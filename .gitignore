@@ -1,0 +1,9 @@
+*.log
+*.pot
+*.pyc
+*.mo
+*.sqlite
+.settings/
+.project
+.pydevproject
+.DS_Store
