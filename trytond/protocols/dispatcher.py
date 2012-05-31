@@ -50,6 +50,14 @@ def dispatch(host, port, protocol, database_name, user, session, object_type,
             return True
         elif method == 'version':
             return VERSION
+        elif method == 'ping':
+            return 'pong'
+        elif method == 'config':
+            result = {}
+            if len(args) > 0:
+                for key in args[0]:
+                    result[key] = CONFIG.options.get(key)
+            return result
         elif method == 'timezone_get':
             return CONFIG['timezone']
         elif method == 'list_lang':

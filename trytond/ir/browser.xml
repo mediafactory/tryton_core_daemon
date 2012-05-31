@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+        <menuitem name="Browser" id="menu_browser" parent="menu_administration"/>
+
+		<record model="ir.ui.view" id="safe_urls_view_tree">
+            <field name="model">safe.urls</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="safe URLs">
+                    <field name="url" />
+                </tree>
+                ]]>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="safe_urls_view_form">
+            <field name="model">safe.urls</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+              <![CDATA[
+              <form string="safe URL">
+                <label name="url"/>
+                <field name="url"/>
+              </form>
+              ]]>
+            </field>
+       </record>
+       
+       <!-- View for the main menu and the event -->
+       <record model="ir.action.act_window" id="act_safe_urls_world_form">
+            <field name="name">Safe URLs</field>
+            <field name="res_model">safe.urls</field>
+        </record>
+        
+        <!-- View that connect the form in the tree with the specification -->
+        <record model="ir.action.act_window.view" id="act_safe_urls_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="safe_urls_view_tree"/>
+            <field name="act_window" ref="act_safe_urls_world_form"/>
+        </record>
+
+        <!-- View for the edition or the Form of hello-->
+        <record model="ir.action.act_window.view" id="act_safe_urls_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="safe_urls_view_form"/>
+            <field name="act_window" ref="act_safe_urls_world_form"/>
+        </record>
+        
+        <menuitem id="menu_safe_urls_world_form" action="act_safe_urls_world_form"  parent="menu_browser"/>
+    </data>
+</tryton>

@@ -16,3 +16,4 @@ from .cache import *
 from .date import *
 from .trigger import *
 from .session import *
+from .browser import *
