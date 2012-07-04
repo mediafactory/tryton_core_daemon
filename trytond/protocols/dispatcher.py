@@ -51,6 +51,7 @@ def dispatch(host, port, protocol, database_name, user, session, object_type,
         elif method == 'version':
             return VERSION
         elif method == 'ping':
+            user = security.check(database_name, user, session)
             return 'pong'
         elif method == 'config':
             result = {}
